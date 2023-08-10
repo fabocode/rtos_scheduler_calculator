@@ -103,11 +103,8 @@ def main():
 
     # requirement 3: choose the largest candidate frame size
     largest_frame_size = 0
-    tasks = [
-        task_dict[1].get_details(),
-        task_dict[2].get_details(),
-        task_dict[3].get_details()
-    ]
+    tasks = [task.get_details() for task in task_dict.values()] # Convert the task objects to a list of dictionaries
+
     largest_frame_size = find_optimal_frame_size(frame_candidate_list, tasks)
 
     if largest_frame_size is None:
