@@ -77,7 +77,7 @@ def main():
         print("---------- Enter details for Task (T%d)-----------------" % (task_id))
         period = int(input("Enter the period: "))
         periods.append(period)
-        execution_time = int(input("Enter the execution time: "))
+        execution_time = float(input("Enter the execution time: "))
         has_deadline = input("Does the task have a deadline? (y/n): ")
         if has_deadline.lower() == 'y':
             deadline = int(input("Enter the deadline: "))
@@ -87,7 +87,7 @@ def main():
 
         # save the max execution time
         if execution_time > max_exec_time:
-            max_exec_time = int(execution_time)
+            max_exec_time = execution_time
         print("")
 
     # Print all the tasks
