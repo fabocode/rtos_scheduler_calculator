@@ -67,6 +67,13 @@ def main():
     
     # Get the number of tasks
     num_tasks = int(input("Enter the number of tasks: "))
+    if num_tasks <= 0:
+        print("Invalid number of tasks")
+        return
+
+    if num_tasks == 1:
+        print("Only one task. The frame size is the period of the task")
+        return
 
     task_dict = {}
     periods = [] 
