@@ -8,12 +8,14 @@ def get_LCM(periods):
 
 def find_valid_candidates(periods):
     hyperperiod = get_LCM(periods)  # Calculate the hyperperiod
-    
+    print("Hyperperiod (H): {} = {}".format(periods, hyperperiod))
+
     largest_period = max(periods)
     valid_candidates = []
     
     candidate_period = largest_period
     while candidate_period >= 1:
+        print("H {} % f {} = {}".format(hyperperiod, candidate_period, hyperperiod % candidate_period))
         if hyperperiod % candidate_period == 0:
             valid_candidates.append(candidate_period)
         candidate_period -= 1
@@ -24,7 +26,8 @@ def evaluate_condition(frame_size, tasks):
     for task in tasks:
         period = task["period"]
         deadline = task["deadline"]
-        
+
+        print("f({}) | {} - {} <= {}".format(frame_size, 2*frame_size, gcd(period, frame_size), deadline))
         if (2 * frame_size - gcd(period, frame_size)) > deadline:
             return False  # The condition doesn't hold for this frame size
     return True
