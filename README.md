@@ -25,7 +25,7 @@ You receive a set of tasks with the following details
 The output is going to be the following: 
 
 
-```terminal
+```
 rtos_scheduler_calculator\cyclic_structured_scheduler> python .\main.py
 Find the largest possible frame size for the cyclic structured scheduler
 Enter the number of tasks: 3
