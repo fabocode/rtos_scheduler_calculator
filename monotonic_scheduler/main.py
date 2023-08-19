@@ -88,7 +88,7 @@ def read_tasks():
         execution_time = float(input("Enter the execution time: "))
         has_deadline = input("Does the task have a deadline? (y/n): ")
         if has_deadline.lower() == 'y':
-            deadline = int(input("Enter the deadline: "))
+            deadline = float(input("Enter the deadline: "))
         else:
             deadline = period
         task_dict[task_id] = Task(task_id, period, execution_time, deadline)
