@@ -77,26 +77,21 @@ def read_tasks():
         return
 
     task_dict = {}
-    # periods = [] 
-    # max_exec_time = 0
+
     # Get the task details
     for i in range(num_tasks):
         task_id = i+1
         print("---------- Enter details for Task (T%d)-----------------" % (task_id))
         period = int(input("Enter the period: "))
-        # periods.append(period)
         execution_time = float(input("Enter the execution time: "))
         has_deadline = input("Does the task have a explicit deadline? (y/n): ")
+
         if has_deadline.lower() == 'y':
             deadline = float(input("Enter the deadline: "))
         else:
             deadline = period
+            
         task_dict[task_id] = Task(task_id, period, execution_time, deadline)
-
-        # save the max execution time
-        # if execution_time > max_exec_time:
-        #     max_exec_time = execution_time
-        # print("")
 
     # Print all the tasks
     print("")
@@ -107,14 +102,12 @@ def read_tasks():
         print("Task (T{}) : Period: {}, Execution Time: {}, Deadline: {}".format(task.task_id, task.period, task.execution_time, task.deadline))
     print("")
 
-    # return task_dict, periods, max_exec_time
     return task_dict
 
 def main():
     """
         Calculate the system's utilization factor
     """
-    # task_dict, periods, max_exec_time = read_tasks()
     task_dict = read_tasks()
     tasks = [task.get_details() for task in task_dict.values()] # Convert the task objects to a list of dictionaries
     total_utilization = get_total_utilization(tasks)
